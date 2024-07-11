@@ -1,4 +1,3 @@
-
 using img2ascii.Services;
 
 namespace img2ascii
@@ -10,9 +9,10 @@ namespace img2ascii
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddTransient<IMainService, MainService>();
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGenNewtonsoftSupport();
 
             var app = builder.Build();
 
